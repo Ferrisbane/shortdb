@@ -2,8 +2,17 @@
 
 namespace App\Shortcodes;
 
-class FontAwesome
+use Ferrisbane\ShortDB\ShortDB;
+
+class FontAwesome extends ShortDB
 {
+
+    /**
+     * The shortcode.
+     *
+     * @var string
+     */
+    protected $code = 'fa';
 
     /**
      * A description of what the shortcode will output.
