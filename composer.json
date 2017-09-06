@@ -5,7 +5,7 @@
     "database",
     "processor",
     "php",
-    "shortcode",
+    "shortcode"
   ],
   "license": "MIT",
   "authors": [
