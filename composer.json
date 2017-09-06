@@ -1,0 +1,29 @@
+{
+  "name": "Ferrisbane/ShortDB",
+  "description": "A PHP helper package to process static \"database\" content into dynamic content.",
+  "keywords": [
+    "database",
+    "processor",
+    "php",
+    "shortcode",
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ferrisbane",
+      "email": "ferrisbanegit@ferrisbane.co.uk"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ferrisbane\\ShortDB\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "minimum-stability": "stable"
+}
