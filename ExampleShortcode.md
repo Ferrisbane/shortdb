@@ -1,10 +1,11 @@
-```<?php
+```php
+<?php
 
 namespace App\Shortcodes;
 
-use Ferrisbane\ShortDB\ShortDB;
+use Ferrisbane\ShortDB\Shortcode;
 
-class FontAwesome extends ShortDB
+class FontAwesome extends Shortcode
 {
 
     /**
@@ -29,17 +30,27 @@ class FontAwesome extends ShortDB
     protected $arguments = [
         'icon' => [
             'required' => true
+        ],
+        'spin' => [
+            'required' => false,
+            'default' => false
         ]
     ];
 
     /**
-     * Process a shortcode instance.
+     * Processes the shortcode.
      *
-     * @param array $arguments
+     * @param string
      */
     public function process(array $arguments)
     {
-        return '<i class="fa-' . $arguments['icon'] . '"></i>';
+        $class = 'fa fa-'.$arguments['icon'];
+
+        if ($arguments['spin']) {
+            $class .= ' fa-spin';
+        }
+
+        return '<i class="'.$class.'"></i>';
     }
 
     public function getJavascriptDescriptor()
@@ -69,4 +80,5 @@ class FontAwesome extends ShortDB
         ];
     }
 
-}```
+}
+```

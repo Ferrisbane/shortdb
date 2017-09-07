@@ -32,7 +32,7 @@ class Laravel5ServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->alias('Ferrisbane\ShortDB\ShortDB', 'ShortDB');
+        $this->app->alias('Ferrisbane\ShortDB\ShortDB', 'shortdb');
     }
 
     /**
