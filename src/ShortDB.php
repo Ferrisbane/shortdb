@@ -4,6 +4,7 @@ namespace Ferrisbane\ShortDB;
 
 use Ferrisbane\ShortDB\Contracts\ShortDB as ShortDBC;
 use Illuminate\Support\Fluent;
+use Illuminate\Filesystem\Filesystem;
 
 class ShortDB implements ShortDBC
 {
@@ -12,9 +13,11 @@ class ShortDB implements ShortDBC
     protected $arguments = [];
     protected $requirements = [];
 
-    public function __construct()
+    public function __construct(Filesystem $files)
     {
-        $this->providers = config('shortdb.providers');
+        $this->files = $files;
+        $this->getClasses();
+        // $this->providers = config('shortdb.providers');
     }
 
     public function process($string)
@@ -84,6 +87,27 @@ class ShortDB implements ShortDBC
             $this->arguments[$shortCode->getCode()] = $shortCode->getDefaultArguments();
             $this->requirements[$shortCode->getCode()] = $shortCode->getRequiredArguments();
         }
+    }
+
+    protected function getClasses()
+    {
+        $paths = config('shortdb.path', base_path().'\\App\\Shortcodes');
+        $files = $this->files->files($paths);
+
+        foreach ($files as $file) {
+            $this->providers[] = $this->convertToClassName($file->getRealPath());
+        }
+
+    }
+
+    protected function convertToClassName($path)
+    {
+        $path = str_replace('/', '\\', $path);
+        $path = str_replace(base_path(), '', $path);
+        $path = str_replace('app\\', 'App\\', $path);
+        $path = str_replace('.php', '', $path);
+
+        return $path;
     }
 
 }

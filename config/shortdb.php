@@ -1,8 +1,6 @@
 <?php
 
 return [
-    'providers' => [
-        // Example
-        // App\Shortcodes\FontAwesome::class,
-    ]
+    // Example path config
+    // 'path' => base_path().'/App/Shortcodes'
 ];
