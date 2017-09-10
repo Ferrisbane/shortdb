@@ -91,19 +91,25 @@ class ShortDB implements ShortDBC
 
     protected function getClasses()
     {
-        $paths = config('shortdb.path', base_path().'\\App\\Shortcodes');
-        $files = $this->files->files($paths);
+        $path = config('shortdb.path', base_path().'/app/Shortcodes');
+        $files = $this->files->files($path);
 
         foreach ($files as $file) {
-            $this->providers[] = $this->convertToClassName($file->getRealPath());
+            if (gettype($file) == 'string') {
+                $filePath = $file;
+            } else {
+                $filePath = $file->getRealPath();
+            }
+
+            $this->providers[] = $this->convertToClassName($filePath);
         }
 
     }
 
     protected function convertToClassName($path)
     {
-        $path = str_replace('/', '\\', $path);
         $path = str_replace(base_path(), '', $path);
+        $path = str_replace('/', '\\', $path);
         $path = str_replace('app\\', 'App\\', $path);
         $path = str_replace('.php', '', $path);
 
