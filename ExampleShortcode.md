@@ -32,9 +32,32 @@ class FontAwesome extends Shortcode
             'required' => true
         ],
         'spin' => [
-            'required' => false,
-            'default' => false
-        ]
+            'required' => false
+        ],
+        'pulse' => [
+            'required' => false
+        ],
+        'size' => [
+            'required' => false
+        ],
+        'fixed-width' => [
+            'required' => false
+        ],
+        'list' => [
+            'required' => false
+        ],
+        'pull' => [
+            'required' => false
+        ],
+        'border' => [
+            'required' => false
+        ],
+        'rotate' => [
+            'required' => false
+        ],
+        'flip' => [
+            'required' => false
+        ],
     ];
 
     /**
@@ -50,7 +73,39 @@ class FontAwesome extends Shortcode
             $class .= ' fa-spin';
         }
 
-        return '<i class="'.$class.'"></i>';
+        if ($arguments['size']) {
+            $class .= ' fa-'.$arguments['size'];
+        }
+
+        if ($arguments['fixed-width']) {
+            $class .= ' fa-fw';
+        }
+
+        if ($arguments['list']) {
+            $class .= ' fa-li';
+        }
+
+        if ($arguments['border']) {
+            $class .= ' fa-border';
+        }
+
+        if ($arguments['pulse']) {
+            $class .= ' fa-pulse';
+        }
+
+        if ($arguments['pull']) {
+            $class .= ' fa-pull-'.$arguments['pull'];
+        }
+
+        if ($arguments['rotate']) {
+            $class .= ' fa-rotate-'.$arguments['rotate'];
+        }
+
+        if ($arguments['flip']) {
+            $class .= ' fa-flip-'.$arguments['flip'];
+        }
+
+        return '<i class="'.$class.'" aria-hidden="true"></i>';
     }
 
     public function getJavascriptDescriptor()

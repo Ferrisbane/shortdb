@@ -1,5 +1,5 @@
 {
-  "name": "Ferrisbane/ShortDB",
+  "name": "ferrisbane/shortdb",
   "description": "A PHP helper package to process static \"database\" content into dynamic content.",
   "keywords": [
     "database",
@@ -11,7 +11,7 @@
   "authors": [
     {
       "name": "Ferrisbane",
-      "email": "ferrisbanegit@ferrisbane.co.uk"
+      "email": "shortdb.git@ferrisbane.co.uk"
     }
   ],
   "require": {
