@@ -108,9 +108,10 @@ class ShortDB implements ShortDBC
 
     protected function convertToClassName($path)
     {
+        $namespace = config('shortdb.namespace', 'App');
         $path = str_replace(base_path(), '', $path);
         $path = str_replace('/', '\\', $path);
-        $path = str_replace('app\\', 'App\\', $path);
+        $path = str_replace('app\\', $namespace.'\\', $path);
         $path = str_replace('.php', '', $path);
 
         return $path;
