@@ -57,7 +57,7 @@ class HomeController extends Controller
         {fa|icon:shield|flip:vertical} fa-flip-vertical<br>';
 
         $content = shortdb($basicIcons.$largerIcons.$fixedWidthIcons.$listIcons.$borderedIcons.$animatedIcons.$rotatedIcons);
-	}
+    }
 
 }
 ```

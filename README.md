@@ -2,6 +2,7 @@
 A PHP helper package to process static "database" content into dynamic content.
 
 - [Installation](#installation)
+- [Examples](#examples)
 
 ## Installation
 This package requires PHP 5.4+.
@@ -18,7 +19,7 @@ To use the package with Laravel 5 add the ShortDB service provider to the list o
 
 ```php
 'providers' => [
-  'Ferrisbane\ShortDB\Laravel5ServiceProvider'
+  Ferrisbane\ShortDB\Laravel5ServiceProvider::class
 ];
 ```
 
@@ -33,3 +34,18 @@ Then add the `ShortDB` facade to the aliases array.
 Then use `php artisan vendor:publish` to publish the config. 
 
 To use the package you can either use the `ShortDB` facade or if you prefer using dependency injection ShortDB is bound to the IOC container by its interface.
+
+The package comes with a helpful laravel helper function, just pass it a string and get a porcessed string back
+
+```php
+shortdb($string);
+```
+
+
+## Examples
+
+This repo contains an example that can help you get started with a shortcode
+
+[Example Shortcode (FontAwesome)](ExampleShortcode.md)
+
+[Example Controller Usage (FontAwesome Icons)](ExampleUsage.md)
