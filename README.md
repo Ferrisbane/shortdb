@@ -7,10 +7,10 @@ A PHP helper package to process static "database" content into dynamic content.
 ## Installation
 This package requires PHP 5.4+.
 
-To install through composer you can either use `composer require Ferrisbane/shortdb` or include the package in your `composer.json`.
+To install through composer you can either use `composer require ferrisbane/shortdb` or include the package in your `composer.json`.
 
 ```php
-"Ferrisbane/shortdb": "0.1.*"
+"ferrisbane/shortdb": "0.1.*"
 ```
 
 Then run either `composer install` or `composer update` to download the package.
@@ -20,14 +20,6 @@ To use the package with Laravel 5 add the ShortDB service provider to the list o
 ```php
 'providers' => [
   Ferrisbane\ShortDB\Laravel5ServiceProvider::class
-];
-```
-
-Then add the `ShortDB` facade to the aliases array.
-
-```php
-'aliases' => [
-  'ShortDB' => 'Ferrisbane\ShortDB\Facades\ShortDB',
 ];
 ```
 
@@ -44,7 +36,7 @@ shortdb($string);
 
 ## Examples
 
-This repo contains an example that can help you get started with a shortcode
+This repo contains example code that can help you get started with a shortcode and how to use the shortcodes in your project
 
 [Example Shortcode (FontAwesome)](ExampleShortcode.md)
 
