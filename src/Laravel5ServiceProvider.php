@@ -18,8 +18,7 @@ class Laravel5ServiceProvider extends ServiceProvider
 
         // Set the files to publish
         $this->publishes([
-            __DIR__ . '/../config/shortdb.php' => config_path('shortdb.php'),
-            __DIR__ . '/../database/migrations/' => base_path('database/migrations')
+            __DIR__ . '/../config/shortdb.php' => config_path('shortdb.php')
         ], 'shortdb');
 
         $this->mergeConfigFrom(__DIR__ . '/../config/shortdb.php', 'shortdb');
