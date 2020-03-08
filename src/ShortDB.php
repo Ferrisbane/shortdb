@@ -4,7 +4,7 @@ namespace Ferrisbane\ShortDB;
 
 use Ferrisbane\ShortDB\Contracts\ClassHelper;
 use Ferrisbane\ShortDB\Contracts\ShortDB as ShortDBC;
-use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Filesystem\Filesystem;
 
 class ShortDB implements ShortDBC
 {
