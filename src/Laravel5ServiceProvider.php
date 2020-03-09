@@ -13,9 +13,6 @@ class Laravel5ServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Set the directory to load views from
-        $this->loadViewsFrom(__DIR__ . '/../views', 'shortdb');
-
         // Set the files to publish
         $this->publishes([
             __DIR__ . '/../config/shortdb.php' => config_path('shortdb.php')
@@ -32,6 +29,8 @@ class Laravel5ServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->alias('Ferrisbane\ShortDB\ShortDB', 'shortdb');
+        $this->app->bind('Ferrisbane\ShortDB\Contracts\ClassHelper',
+            'Ferrisbane\ShortDB\ClassHelper');
     }
 
     /**

@@ -2,14 +2,31 @@
 
 namespace Ferrisbane\ShortDB;
 
-class Shortcode
+abstract class Shortcode
 {
+    /**
+     * @var array
+     */
+    protected $arguments;
+
+    /**
+     * @var string $code
+     */
+    protected $code;
+
+    /**
+     * Processes the shortcode
+     *
+     * @param array $arguments
+     * @return mixed
+     */
+    abstract public function process(array $arguments);
 
     /**
      * Returns the shortcode.
      * Put this in extend class...
      *
-     * @param array $arguments
+     * @return string
      */
     public function getCode()
     {
@@ -20,7 +37,17 @@ class Shortcode
      * Returns the arguments for this shortcode.
      * Put this in extend class...
      *
-     * @param array $arguments
+     * @return array
+     */
+    public function getArguments()
+    {
+        return $this->arguments;
+    }
+
+    /**
+     * Returns the arguments for this shortcode.
+     *
+     * @return array
      */
     public function getDefaultArguments()
     {
@@ -39,31 +66,19 @@ class Shortcode
 
     /**
      * Returns the arguments for this shortcode.
-     * Put this in extend class...
      *
-     * @param array $arguments
+     * @return array
      */
     public function getRequiredArguments()
     {
-        $requirments = [];
+        $requirements = [];
 
         foreach ($this->arguments as $key => $argument) {
             if (isset($argument['required']) && $argument['required'] === true) {
-                $requirments[$key] = $argument['required'];
+                $requirements[$key] = $argument['required'];
             }
         }
 
-        return $requirments;
-    }
-
-    /**
-     * Returns the arguments for this shortcode.
-     * Put this in extend class...
-     *
-     * @param array $arguments
-     */
-    public function getArguments()
-    {
-        return $this->arguments;
+        return $requirements;
     }
 }
